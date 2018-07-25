@@ -27,7 +27,6 @@ router.post('/login', (req, res, next) => {
 
   User.authenticate(req.body.username, req.body.password, (err, user) => {
     if (err || !user) {
-      console.log("Thinks I'm not a user");
 
 
       const next_error = new Error("Username or password incorrect");
@@ -37,7 +36,7 @@ router.post('/login', (req, res, next) => {
     } else {
       req.session.userId = user._id;
 
-      return res.redirect('/') ;
+      return res.redirect('/main') ;
     }
   });
 });
@@ -51,5 +50,10 @@ router.get('/logout', (req, res, next) => {
 
   return res.redirect('/login');
 });
+
+router.get('/main', (req,res, next) =>{
+  res.render('main');
+
+})
 
 module.exports = router;
