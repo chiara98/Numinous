@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <style>
+  /* Always set the map height explicitly to define the size of the div
+  * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+</head>
+<body>
+  <input type="hidden" id="hiddenLocation" data-add="{{city1}}" value="{{trip.starting_city}}">
+  <input type="hidden" id="hiddenLocation" data-add="{{city2}}" value="{{trip.ending_city}}">
+  <input type="hidden" id="hiddenLocation" data-add="{{city3}}" value="{{trip.middle_city1}}">
+  <input type="hidden" id="hiddenLocation" data-add="{{city4}}" value="{{trip.middle_city2}}">
+  <input type="hidden" id="hiddenLocation" data-add="{{city5}}" value="{{trip.middle_city3}}">
+  <div id="map">
+
+  </div>
+  <script>
+  //
+  // var address1 = '{{city1}}';
+  // var address2 = '{{city2}}';
+  // var address3 = '{{city3}}';
+  // var address4 = '{{city4}}';
+  // var address5 = '{{city5}}';
+  var map;
+
+  function initMap() {
+    var address = '{{city1}}'
+    var geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode({ 'address' : address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var latitude = results[0].geometry.location.lat();
+        var longitude = results[0].geometry.location.lng();
+      }
+
+
+      console.log(latitude);
+      console.log(longitude);
+      var myLatLng = {lat: latitude, lng: longitude};
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: myLatLng,
+        zoom: 5
+      });
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+
+
+      });
+    });
+
+    var address2 = '{{city2}}'
+    var geocoder1 = new google.maps.Geocoder();
+
+    geocoder1.geocode({ 'address' : address2}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var latitude = results[0].geometry.location.lat();
+        var longitude = results[0].geometry.location.lng();
+      }
+      console.log(latitude);
+      console.log(longitude);
+      var myLatLng1 = {lat: latitude, lng: longitude};
+      var marker = new google.maps.Marker({
+        position: myLatLng1,
+        map: map,
+      });
+
+  });
+
+  var address3 = '{{city3}}'
+  var geocoder2 = new google.maps.Geocoder();
+
+  geocoder2.geocode({ 'address' : address3}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      var latitude = results[0].geometry.location.lat();
+      var longitude = results[0].geometry.location.lng();
+    }
+    console.log(latitude);
+    console.log(longitude);
+    var myLatLng2 = {lat: latitude, lng: longitude};
+    var marker = new google.maps.Marker({
+      position: myLatLng2,
+      map: map,
+    });
+
+});
+var address4 = '{{city4}}'
+var geocoder3 = new google.maps.Geocoder();
+
+geocoder3.geocode({ 'address' : address4}, function(results, status) {
+  if (status == google.maps.GeocoderStatus.OK) {
+    var latitude = results[0].geometry.location.lat();
+    var longitude = results[0].geometry.location.lng();
+  }
+  console.log(latitude);
+  console.log(longitude);
+  var myLatLng3 = {lat: latitude, lng: longitude};
+  var marker = new google.maps.Marker({
+    position: myLatLng3,
+    map: map,
+  });
+
+});
+var address5 = '{{city5}}'
+var geocoder4 = new google.maps.Geocoder();
+geocoder4.geocode({ 'address' : address5}, function(results, status) {
+  if (status == google.maps.GeocoderStatus.OK) {
+    var latitude = results[0].geometry.location.lat();
+    var longitude = results[0].geometry.location.lng();
+  }
+  console.log(latitude);
+  console.log(longitude);
+  var myLatLng4 = {lat: latitude, lng: longitude};
+  var marker = new google.maps.Marker({
+    position: myLatLng4,
+    map: map,
+  });
+
+});
+
+}
+
+  //   function codeAddress(){
+  //     var geocoder = new google.maps.Geocoder();
+  //
+  //      geocoder.geocode( { 'address': address}, function(results, status) {
+  //
+  //          if (status == google.maps.GeocoderStatus.OK) {
+  //              var latitude = results[0].geometry.location.lat();
+  //              var longitude = results[0].geometry.location.lng();
+  //          }
+  //
+  //
+  //
+  //          console.log(latitude);
+  //          console.log(longitude);
+  //          var map = new google.maps.Map(document.getElementById('map'), {
+  //               zoom: 4,
+  //               center: myLatLng
+  //           });
+  //
+  //          var marker = new google.maps.Marker({
+  //               position: myLatLng,
+  //               map: map,
+  //               title: 'Hello World!'
+  //           });
+  //
+  //   }
+  // }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLbJIsbRT5qLR5pcF-6S-3RbL-EuKyccA&callback=initMap"
+  async defer></script>
+</body>
+</html>

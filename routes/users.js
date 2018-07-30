@@ -27,6 +27,8 @@ router.post('/', (req, res, next) => {
     if(err) console.log(err);
     return res.redirect('/users');
   });
-})
+});
+
+
 
 module.exports = router;

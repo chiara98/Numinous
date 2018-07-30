@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const auth = require('./helpers/auth');
 
 
 router.use(function(req, res, next) {
@@ -25,6 +26,7 @@ router.get('/login', (req, res, next) => {
 //Post login
 router.post('/login', (req, res, next) => {
 
+
   User.authenticate(req.body.username, req.body.password, (err, user) => {
     if (err || !user) {
 
@@ -36,7 +38,7 @@ router.post('/login', (req, res, next) => {
     } else {
       req.session.userId = user._id;
 
-      return res.redirect('/main') ;
+      return res.redirect('/trips/new') ;
     }
   });
 });
@@ -51,9 +53,9 @@ router.get('/logout', (req, res, next) => {
   return res.redirect('/login');
 });
 
-router.get('/main', (req,res, next) =>{
-  res.render('main');
 
-})
+
+
+
 
 module.exports = router;

@@ -1,0 +1,48 @@
+ <!-- <h1>hello</h1>
+
+ <div class="dates-dropdown">
+  <form action="/action_page.php">
+    Starting date:
+    <input type="date" name="date1">
+    <input type="submit" value="Send">
+  </form>
+</div>
+
+<div class="dates-dropdown">
+  <form action="/action_page.php">
+    Ending date:
+    <input type="date" name="date2">
+    <input type="submit" value="Send">
+  </form> -->
+</div>
+
+
+  <form action="/trips" method="post">
+    <div class="search">
+      <input type="text" class="city" name="starting_city" id="starting_city" placeholder="Search...">
+      <input type="text" class="city" name="ending_city" id="ending_city" placeholder="Search..">
+      <input type="text" class="city" name="middle_city1" id="middle_city1" placeholder="Search..">
+      <input type="text" class="city" name="middle_city2" id="middle_city2" placeholder="Search..">
+      <input type="text" class="city" name="middle_city3" id="middle_city3" placeholder="Search..">
+      <button type="submit" class="searchButton">
+         Search
+      </button>
+       <!-- <div class="search2">
+        <input type="text" class="form-control" name="ending_city" id="ending_city" placeholder="Search..">
+        <button type="submit" class="searchButton">
+          Search
+        </button> -->
+       </div>
+
+
+
+  <script>
+  function activePlacesSearch() {
+    var input = document.getElementsByClassName('city');
+   for (i = 0; i < input.length; i++) {
+        autocomplete = new google.maps.places.Autocomplete(input[i]);
+}
+}
+  </script>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLbJIsbRT5qLR5pcF-6S-3RbL-EuKyccA&libraries=places&callback=activePlacesSearch"></script>

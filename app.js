@@ -6,6 +6,7 @@ var logger = require('morgan');
 const session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const trips = require('./routes/trips');
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(session({ secret: 'secret-unique-code', cookie: { maxAge: 3600000 }, res
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/trips', trips);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
