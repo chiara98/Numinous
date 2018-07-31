@@ -32,6 +32,10 @@ router.post('/', auth.requireLogin, (req, res, next) => {
   });
 });
 
+router.get('/itinerary', auth.requireLogin, (req, res, next ) => {
+  res.render('trips/itinerary');
+})
+
 // Trips show
 // router.get('/:id', auth.requireLogin, (req, res, next) => {
 //   Trip.findById(req.params.id, function(err, room) {
