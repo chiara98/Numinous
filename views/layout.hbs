@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
@@ -17,22 +18,24 @@
 
 <body>
 
+  <main>
+    {{{body}}}
+  </main>
 
 
 
+      <div class="navbar-text">
+        {{# if currentUserId}}
+        <form action="/logout" method="get">
+          <button type="submit" href="/logout">Log out</button>
+        </form>
 
-  <div class="navbar-text">
-    {{# if currentUserId}}
-      <a class="nav-link" href="/logout">log out</a>
-    {{else}}
-      <a class="nav-link" href="/login">log in</a>
-    {{/if}}
-  </div>
+        {{else}}
+        <form action="/login" method="get">
+          <button class="nav-link" href="/login">Log in</button>
+        </form>
+        {{/if}}
+      </div>
 
-
-
-      <main>
-        {{{body}}}
-      </main>
     </body>
     </html>

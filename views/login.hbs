@@ -1,17 +1,72 @@
+<style>
+form {
+  margin-left: 600px;
+  margin-top: 200px;
+}
+
+body{
+  background-color: #455F91;
+
+}
+legend {
+  padding-bottom: 100px;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 30px;
+
+
+
+}
+
+.form-group {
+  padding-bottom: 100px;
+
+}
+#email {
+  padding-right: 165px;
+  margin-left: -130px;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 20px;
+
+}
+#password {
+  padding-right: 6em;
+  margin-left: -130px;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 20px;
+
+
+}
+input {
+  height: 30px;
+  width: 200px;
+  background-color: white;
+}
+
+label {
+  font-size: 20px;
+}
+</style>
+
+
+
 <form action="/login" method="post">
   <legend>Log in</legend>
 
   <div class="form-group">
-    <label for="user-username">Username</label>
-    <input type="text" name="username" class="form-control" id="user-username" placeholder="username">
+    <label id="email" for="user-username">Email</label>
+    <input type="text" name="username" class="form-control" id="user-username" placeholder="email">
   </div>
 
   <div class="form-group">
-    <label for="user-password">Password</label>
+    <label id="password" for="user-password">Password</label>
     <input type="password" name="password" class="form-control" id="user-password" placeholder="password">
   </div>
 
   <div class="text-right">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="pure-button">Submit</button>
+    <a href="users/new"> Sign up</a>
   </div>
 </form>
