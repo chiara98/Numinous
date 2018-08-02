@@ -28,7 +28,7 @@
   <div id="map">  </div>
   <div id="right-panel">
      <p>Total Distance: <span id="total"></span></p>
-     <!-- <p> Amount of Days In Each City <span id="city1Days"></span></p> -->
+     <p> Amount of Days In Each City: <span id="city1Days"></span></p>
 
      <button id="printButton"> Preview itinerary </button>
 
@@ -42,7 +42,14 @@
    <!-- background-color: #0005;
 text-shadow: 2px 2px black; -->
 
-
+<script>
+const date1 = new Date("{{date1}}");
+const date2 = new Date("{{date2}}");
+const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+const diffDays = Math.round(timeDiff/ (1000 * 3600 *24));
+const equalDays = diffDays/5;
+document.getElementById('city1Days').innerHTML = equalDays;
+</script>
 
 
 
@@ -70,10 +77,6 @@ text-shadow: 2px 2px black; -->
 
   function initMap() {
 
-
-
-    // document.getElementById('city1Days').innerHTML = equalDays;
-
     var address = '{{city1}}'
     var geocoder = new google.maps.Geocoder();
 
@@ -96,7 +99,6 @@ text-shadow: 2px 2px black; -->
       <div id= "sideNotice" >
       </div>
       <h1 id= "firstHeading" class = "firstHeading"> {{city1}} </h1>
-      <p id= "city1Days"> hi </p>
       </div>
       </div>`;
 
@@ -127,12 +129,13 @@ text-shadow: 2px 2px black; -->
       console.log(latitude);
       console.log(longitude);
       var myLatLng1 = {lat: latitude, lng: longitude};
-      var contentString = '<div id = "content" ' +
-      '<div id= "sideNotice" >' +
-      '</div>' +
-      '<h1 id= "firstHeading" class = "firstHeading"> {{city2}} </h1>' +
-      '</div>'+
-      '</div>';
+      var contentString = `<div id = "content">
+      <div id= "sideNotice" >
+      </div>
+      <h1 id= "firstHeading" class = "firstHeading"> {{city1}} </h1>
+
+      </div>
+      </div>`;
 
       var infoWindow = new google.maps.InfoWindow({
           content: contentString
@@ -157,12 +160,12 @@ text-shadow: 2px 2px black; -->
     }
     console.log(latitude);
     console.log(longitude);
-    var contentString = '<div id = "content" ' +
-    '<div id= "sideNotice" >' +
-    '</div>' +
-    '<h1 id= "firstHeading" class = "firstHeading"> {{city3}} </h1>' +
-    '</div>'+
-    '</div>';
+    var contentString = `<div id = "content">
+    <div id= "sideNotice" >
+    </div>
+    <h1 id= "firstHeading" class = "firstHeading"> {{city1}} </h1>
+    </div>
+    </div>`;
 
     var infoWindow = new google.maps.InfoWindow({
         content: contentString
@@ -192,12 +195,12 @@ geocoder3.geocode({ 'address' : address4}, function(results, status) {
     position: myLatLng3,
     map: map,
   });
-  var contentString = '<div id = "content" ' +
-  '<div id= "sideNotice" >' +
-  '</div>' +
-  '<h1 id= "firstHeading" class = "firstHeading"> {{city4}} </h1>' +
-  '</div>'+
-  '</div>';
+  var contentString = `<div id = "content">
+  <div id= "sideNotice" >
+  </div>
+  <h1 id= "firstHeading" class = "firstHeading"> {{city1}} </h1>
+  </div>
+  </div>`;
 
   var infoWindow = new google.maps.InfoWindow({
       content: contentString
@@ -216,12 +219,12 @@ geocoder4.geocode({ 'address' : address5}, function(results, status) {
   }
   console.log(latitude);
   console.log(longitude);
-  var contentString = '<div id = "content" ' +
-  '<div id= "sideNotice" >' +
-  '</div>' +
-  '<h1 id= "firstHeading" class = "firstHeading"> {{city5}} </h1>' +
-  '</div>'+
-  '</div>';
+  var contentString = `<div id = "content">
+  <div id= "sideNotice" >
+  </div>
+  <h1 id= "firstHeading" class = "firstHeading"> {{city1}} </h1>
+  </div>
+  </div>`;
 
   var infoWindow = new google.maps.InfoWindow({
       content: contentString
@@ -279,13 +282,7 @@ directionsDisplay.addListener('directions_changed', function() {
 
 
 }
-const date1 = new Date("{{date1}}");
-const date2 = new Date("{{date2}}");
-const timeDiff = Math.abs(date2.getTime() - date1.getTime());
-const diffDays = Math.round(timeDiff/ (1000 * 3600 *24));
-const equalDays = diffDays/5;
-const string = equalDays.toString();
-document.getElementById('city1Days').innerHTML = string;
+
 
 
   </script>
