@@ -1,72 +1,132 @@
 <style>
 form {
-  margin-left: 600px;
-  margin-top: 200px;
+  margin-left: 500px;
+  margin-top: -100px;
 }
 
-body{
+.background{
+
   background-color: #455F91;
+
+
+}
+
+body {
+
+  background-repeat: no-repeat;
+  height: 100vh;
+  background: linear-gradient(to left, #116D89, #BFE3EE);
+  overflow: hidden;
 
 }
 legend {
-  padding-bottom: 100px;
-  font-family: 'Cinzel', serif;
+  padding-bottom: 50px;
+  font-family: 'Gentium Basic', serif;
+
   font-weight: bold;
   font-size: 30px;
+  margin-left: 50px;
 
 
 
+
+}
+.is-active {
+  box-shadow: 0 20px 5px -10px rgba(#000, 0.4);
+  transform: translateY(10px);
 }
 
 .form-group {
-  padding-bottom: 100px;
+  padding-bottom: 40px;
+
 
 }
-#email {
-  padding-right: 165px;
-  margin-left: -130px;
-  font-family: 'Cinzel', serif;
-  font-weight: bold;
-  font-size: 20px;
 
+canvas {
+  height: 100%;
+  width: 100%;
 }
-#password {
-  padding-right: 6em;
-  margin-left: -130px;
-  font-family: 'Cinzel', serif;
-  font-weight: bold;
-  font-size: 20px;
 
 
+#user-password {
+margin-right: 100px;
 }
 input {
-  height: 30px;
-  width: 200px;
+  height: 40px;
+  width: 250px;
   background-color: white;
+  border-radius: 15px;
+
 }
 
 label {
   font-size: 20px;
 }
+
+button {
+  height: 40px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #649FDB;
+
+}
+button:hover {
+  background-color: #CEDEEF
+}
+
+.container {
+  display:flex;
+  flex-direction: column;
+ justify-content: center;
+
+ margin: auto;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ width: 200px;
+ height: 100vh;
+}
+
+#signup {
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-bottom: -100px;
+}
+
+#mini-button {
+  height: 20px;
+  width: 70px;
+  margin-top: 30px;
+}
 </style>
+<script>
+$(".text").hover(function(){
+  $(this).toggleClass("active");
+});
+</script>
+
+
 
 
 
 <form action="/login" method="post">
+  <div class="container">
   <legend>Log in</legend>
 
   <div class="form-group">
-    <label id="email" for="user-username">Email</label>
-    <input type="text" name="username" class="form-control" id="user-username" placeholder="email">
+
+    <input type="text" name="username" class="form-control" id="user-username" placeholder="username">
   </div>
 
   <div class="form-group">
-    <label id="password" for="user-password">Password</label>
     <input type="password" name="password" class="form-control" id="user-password" placeholder="password">
   </div>
 
   <div class="text-right">
-    <button type="submit" class="pure-button">Submit</button>
-    <a href="users/new"> Sign up</a>
+
+    <button type="submit">Login</button>
+    <button id="mini-button"onclick="location.href='/users/new'" type="button">
+     <small>Sign up</small></button>
   </div>
+</div>
 </form>

@@ -1,5 +1,96 @@
+<style>
+.container {
+  display:flex;
+  flex-direction: column;
+ justify-content: center;
+
+ margin: auto;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ width: 200px;
+ height: 100vh;
+}
+label {
+  font-size: 20px;
+}
+
+button {
+  height: 40px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #649FDB;
+
+}
+button:hover {
+  background-color: #CEDEEF
+
+}
+canvas {
+  height: 100%;
+  width: 100%;
+}
+
+
+#user-password {
+margin-right: 100px;
+}
+input {
+  height: 40px;
+  width: 250px;
+  background-color: white;
+  border-radius: 15px;
+
+}
+
+.is-active {
+  box-shadow: 0 20px 5px -10px rgba(#000, 0.4);
+  transform: translateY(10px);
+}
+
+.form-group {
+  padding-bottom: 40px;
+
+
+}
+legend {
+  padding-bottom: 50px;
+  font-family: 'Gentium Basic', serif;
+
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 50px;
+
+
+
+
+}
+form {
+  margin-left: 500px;
+  margin-top: -100px;
+}
+
+.background{
+
+  background-color: #455F91;
+
+
+}
+
+body {
+
+  background-repeat: no-repeat;
+  height: 100vh;
+  background: linear-gradient(to left, #BFE3EE, #116D89);
+  overflow: hidden;
+
+}
+</style>
+
+
 <div>
   <form action="/users" method="post">
+    <div class="container">
     <legend>New User</legend>
 
     <div class="form-group">
@@ -15,5 +106,6 @@
     <div class="text-right">
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+  </div>
   </form>
 </div>

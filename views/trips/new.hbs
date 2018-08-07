@@ -1,123 +1,206 @@
 <style>
 body{
-  background-image: url('/img/nature3.jpg');
-  background-size: cover;
+  overflow: scroll;
+  height: 100%;
+
+
+
 }
 form {
   margin-left: 20px;
-  margin-top: 400px;
+  margin-top: 250px;
+
 }
+
 .container {
+
   display: flex;
   flex-direction: row;
   align-items: center;
+
 }
+
 
 #search {
   height: 40px;
   width: 80px;
 
 }
+#date2 {
+
+  height: 40px;
+}
 
 #date1 {
-  margin-left:
+  margin-right: 5px;
+  height: 40px;
+
+
 }
+
+
 
 #starting_city {
   margin-top: 1px;
-  height: 21px;
+  height: 40px;
   width: 170px;
-
+  margin-right:5px;
+  margin-left: 5px;
 
 
 }
 
 #ending_city {
   margin-top: 1px;
-  height: 21px;
+  height: 40px;
   width: 170px;
+  margin-right: 5px;
+
 }
 
 #middle_city1 {
-  margin-top: 20px;
-  height: 21px;
+  margin-top: 0px;
+  height: 40px;
   width: 170px;
+  margin-right: 5px;
+
 }
 
 #middle_city2 {
-  margin-top: 20px;
-  height: 21px;
+  margin-top: 0px;
+  height: 40px;
   width: 170px;
+  margin-right: 5px;
+
 }
 
 #middle_city3 {
-  margin-top: 20px;
-  height: 21px;
+  margin-top: 0px;
+  height: 40px;
   width: 170px;
+  margin-right: 5px;
+
 }
 
-body {}
+#search {
+  margin-right: 150px;
+  margin-top: 10px;
+
+}
+
+#top-container, #bottom-container {
+  position: static;
+		left: 0;
+		right: 0;
+		height: 100%;
+}
+#top-container {
+
+
+	background: url('../img/city2.jpg') no-repeat;
+  overflow: scroll;
+
+  background-position: center center;
+  height: 600px;
+  background-size: 100%;
+}
+
+
+#bottom-container {
+  bottom: 0;
+		background-color: #fffafa	;
+    overflow: scroll;
+
+}
+
+#bottom-container h1 {
+  text-align:  center;
+  padding-bottom: 20px;
+  font-family: 'Itim', cursive;
+  font-size: 40px
+
+}
+
+#bottom-container p {
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-size: 30px;
+
+}
+
+
 </style>
 
+<div id="top-container">
 
-  <form action="/trips" method="post">
-    <div class="container">
+<form action="/trips" method="post">
+  <div class="container">
 
-    <div class="dates-dropdown">
 
-       Starting date:
+     <div class="dates-dropdown">
+        Starting date:
        <input id="date1" type="date" name="starting_Date">
-
-   </div>
-
-   <div class="dates-dropdown">
+    </div>
+    <div class="dates-dropdown">
        Ending date:
-       <input type="date" name="ending_Date">
+       <input id="date2" type="date" name="ending_Date">
    </div>
 
-
-
-      <div>
-      <label id="start">Starting city </label>
+       <div>
+      <label id="start">Starting destination: </label>
       <input type="text" class="city" name="starting_city" id="starting_city" placeholder="Search...">
     </div>
 
-    <div>
-      <label>Ending city </label>
+     <div>
+      <label>Ending destination: </label>
       <input type="text" class="city" name="ending_city" id="ending_city" placeholder="Search..">
     </div>
-
-    <div>
+     <div>
+        Other locations:
       <input type="text" class="city" name="middle_city1" id="middle_city1" placeholder="Search..">
     </div>
-
-    <div>
+     <div>
+       <label> Other locations: </label>
       <input type="text" class="city" name="middle_city2" id="middle_city2" placeholder="Search..">
     </div>
-
-    <div>
+     <div>
+       <label> Other locations: </label>
       <input type="text" class="city" name="middle_city3" id="middle_city3" placeholder="Search..">
     </div>
-
-      <button id="search" type="submit" class="searchButton">
+      <button type="submit" class="searchButton">
+       <button id="search" type="submit" class="searchButton">
          Search
       </button>
+      </div>
+    </form>
+  </div>
 
 
-     </div>
+    <div id="bottom-container">
+      <h1> Plan your trip </h1>
+      <p> Choose your starting and ending destination </p>
+      <p> Pick locations you want to visit along the way </p>
+      <p> We create a personalized best route for your travels </p>
+    </div>
+  </div>
 
 
-     </form>
+
+
+
+
 
 
 
   <script>
+
   function activePlacesSearch() {
-    var input = document.getElementsByClassName('city');
-   for (i = 0; i < input.length; i++) {
-        autocomplete = new google.maps.places.Autocomplete(input[i]);
+   var input = document.getElementsByClassName('city');
+  for (i = 0; i < input.length; i++) {
+       autocomplete = new google.maps.places.Autocomplete(input[i]);
 }
 }
+
   </script>
 
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLbJIsbRT5qLR5pcF-6S-3RbL-EuKyccA&libraries=places&callback=activePlacesSearch"></script>
