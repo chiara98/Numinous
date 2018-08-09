@@ -5,6 +5,7 @@
   <meta name="viewport" content="initial-scale=1.0">
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Tangerine|Tenor+Sans" rel="stylesheet">
 
   <style>
 
@@ -21,12 +22,133 @@
     margin-left: 1300px;
     margin-top: -300px;
   }
+  .nav {
+    height: 60px;
+    width: 100%;
+    background-color: black;
+
+    position: relative;
+  }
+
+  .nav > .nav-header {
+    display: inline;
+  }
+
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 10px 10px 50px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+
+  }
+
+  .nav > .nav-btn {
+    display: none;
+  }
+
+  .nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+  }
+
+  .nav > .nav-links > a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    margin-right: 70px;
+    text-decoration: none;
+    color: #efefef;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  .nav > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .nav > #nav-check {
+    display: none;
+  }
+
+  @media (max-width:600px) {
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 15px;
+    }
+    .nav > .nav-btn > label:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+    }
+    .nav > .nav-links > a {
+      display: block;
+      width: 100%;
+
+    }
+    .nav > #nav-check:not(:checked) + .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked + .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+  }
 
 
 
   </style>
+
 </head>
+
 <body>
+  <div class="nav">
+  <div class="nav-header">
+    <div class="nav-title">
+      Numinous
+    </div>
+  </div>
+  <div class="nav-btn">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+  <input type="checkbox" id="nav-check">
+  <div class="nav-links">
+    <a href="/users/new" target="_self">Sign up</a>
+    <a href="/trips/new" target="_self">Home</a>
+  </div>
+</div>
+
+
   <input type="hidden" id="hiddenLocation" data-add="{{city1}}" value="{{trip.starting_city}}">
   <input type="hidden" id="hiddenLocation" data-add="{{city2}}" value="{{trip.ending_city}}">
   <input type="hidden" id="hiddenLocation" data-add="{{city3}}" value="{{trip.middle_city1}}">
