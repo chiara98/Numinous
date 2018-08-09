@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const TripSchema = new Schema({
+  // user_create: { type: Schema.Types.ObjectId, ref: 'User'},
    starting_Date: {type: Date, required: true},
    ending_Date: {type: Date, required: true},
   starting_city: {type: String, required: true},

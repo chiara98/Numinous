@@ -17,6 +17,13 @@
     padding: 0;
   }
 
+  #trip-button {
+    margin-left: 1300px;
+    margin-top: -300px;
+  }
+
+
+
   </style>
 </head>
 <body>
@@ -28,10 +35,14 @@
   <div id="map">  </div>
   <div id="right-panel">
      <p>Total Distance: <span id="total"></span></p>
+     <p> Total Days: <span id="totalDays"></span></p>
      <p> Amount of Days In Each City: <span id="city1Days"></span></p>
 
-     <button id="printButton"> Preview itinerary </button>
 
+     <button id="printButton"> Preview itinerary </button>
+     <form action="/trips/new" method="get">
+     <button id="trip-button"> Go back </button>
+   </form>
 
 
    </div>
@@ -44,11 +55,13 @@ text-shadow: 2px 2px black; -->
 
 <script>
 const date1 = new Date("{{date1}}");
+console.log(date1);
 const date2 = new Date("{{date2}}");
 const timeDiff = Math.abs(date2.getTime() - date1.getTime());
 const diffDays = Math.round(timeDiff/ (1000 * 3600 *24));
 const equalDays = diffDays/5;
 document.getElementById('city1Days').innerHTML = equalDays;
+document.getElementById('totalDays').innerHTML = diffDays;
 </script>
 
 
@@ -77,7 +90,7 @@ document.getElementById('city1Days').innerHTML = equalDays;
 
       var address = '{{city1}}'
       var geocoder = new google.maps.Geocoder();
-  
+
 
       geocoder.geocode({ 'address' : address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {

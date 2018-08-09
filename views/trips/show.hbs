@@ -1,0 +1,13 @@
+<style>
+li {
+  margin-top: 500px;
+  font-size: 2em;
+}
+</style>
+
+<div>
+  {{#each trips as |trip|}}
+     <li>{{trip.starting_city}}</li>
+       
+     {{/each}}
+</div>

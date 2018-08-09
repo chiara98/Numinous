@@ -3,8 +3,13 @@ const router = express.Router();
 const Trip = require('../models/trip');
 const users = require('./users');
 const auth = require('./helpers/auth');
+// const User = require('../models/user');
 
 
+
+// router.use(function(req, res, next) {
+//   res.locals.currentUserId = req.session.userId;
+// });
 // Trips index
 router.get('/', (req,res, next) => {
 
@@ -15,7 +20,7 @@ router.get('/', (req,res, next) => {
 
 //Trip new
 router.get('/new', auth.requireLogin, (req, res, next) => {
-  res.render('trips/new');
+  res.render('trips/new', {layout: 'newLayout.hbs'});
 })
 
 
@@ -31,20 +36,25 @@ router.post('/', auth.requireLogin, (req, res, next) => {
   });
 });
 
-router.get('/itinerary', auth.requireLogin, (req, res, next ) => {
-  res.render("trips/itinerary")
-})
-
-
-// Trips show
-// router.get('/:id', auth.requireLogin, (req, res, next) => {
-//   Trip.findById(req.params.id, function(err, room) {
-//     if(err) { console.error(err) };
+// router.get('/show', auth.requireLogin, (req,res,next) => {
+//   const currentUserId = req.session.userId;
+//   User.findById(currentUserId.exec((err, user ) => {
+//     if(err) {console.error(err)};
 //
-//       res.render('rooms/show', { room: room, posts: posts, roomId: req.params.id });
-//     });
-//   });
+//     Trip.findById(currentUserId.exec((err, trip) => {
+//       if(err) { console.error(err) };
+//
+//       console.log("going to show!");
+//       console.log(user.trips);
+//       res.render('trips/show', { user: user, trips: user.trips});
+//     }));
+//   }));
 // });
+
+
+
+
+
 
 
 module.exports = router;

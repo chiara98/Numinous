@@ -1,4 +1,10 @@
 <style>
+
+label {
+  font-family: 'Itim', cursive;
+  color: white;
+
+}
 body{
   overflow: scroll;
   height: 100%;
@@ -34,8 +40,12 @@ form {
 #date1 {
   margin-right: 5px;
   height: 40px;
+  margin-left: 50px;
 
+}
 
+#start_date {
+  margin-left: 50px;
 }
 
 
@@ -49,6 +59,8 @@ form {
 
 
 }
+
+
 
 #ending_city {
   margin-top: 1px;
@@ -75,6 +87,7 @@ form {
 }
 
 #middle_city3 {
+
   margin-top: 0px;
   height: 40px;
   width: 170px;
@@ -83,10 +96,28 @@ form {
 }
 
 #search {
-  margin-right: 150px;
+  margin-left: 100px;
+  margin-right: 100px;
   margin-top: 10px;
+  background-color: #E95F25;
+  border: 1px solid #E95F25;
+  font-family: 'Itim', cursive;
+
+
+
 
 }
+
+input
+{
+    background: rgba(255,255,255,.5);
+    border: 1px solid white;
+    border-radius: 5px;
+    font-family: 'Itim', cursive;
+
+}
+
+
 
 #top-container, #bottom-container {
   position: static;
@@ -97,7 +128,7 @@ form {
 #top-container {
 
 
-	background: url('../img/city2.jpg') no-repeat;
+	background: url('../img/city3.jpg') no-repeat;
   overflow: scroll;
 
   background-position: center center;
@@ -115,9 +146,10 @@ form {
 
 #bottom-container h1 {
   text-align:  center;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   font-family: 'Itim', cursive;
-  font-size: 40px
+  font-size: 40px;
+  margin-top: -70px;
 
 }
 
@@ -127,6 +159,23 @@ form {
   font-size: 30px;
 
 }
+
+#bottom-container .container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+img {
+  margin-left: 400px;
+  border: 1px solid pink;
+  border-radius: 50px;
+  background-color: #E95F25;
+  margin-top: 50px;
+}
+
+
+
 
 
 </style>
@@ -138,11 +187,11 @@ form {
 
 
      <div class="dates-dropdown">
-        Starting date:
+        <label id="start_date">Starting date:</label>
        <input id="date1" type="date" name="starting_Date">
     </div>
     <div class="dates-dropdown">
-       Ending date:
+       <label>Ending date:</label>
        <input id="date2" type="date" name="ending_Date">
    </div>
 
@@ -156,7 +205,7 @@ form {
       <input type="text" class="city" name="ending_city" id="ending_city" placeholder="Search..">
     </div>
      <div>
-        Other locations:
+        <label>Other locations:</label>
       <input type="text" class="city" name="middle_city1" id="middle_city1" placeholder="Search..">
     </div>
      <div>
@@ -167,9 +216,9 @@ form {
        <label> Other locations: </label>
       <input type="text" class="city" name="middle_city3" id="middle_city3" placeholder="Search..">
     </div>
-      <button type="submit" class="searchButton">
-       <button id="search" type="submit" class="searchButton">
+       <button id="search" type="submit" class="searchButton"><span>
          Search
+       </span>
       </button>
       </div>
     </form>
@@ -177,19 +226,16 @@ form {
 
 
     <div id="bottom-container">
+      <div class="contaner">
+        <img src="../img/airplane3.png">
+
       <h1> Plan your trip </h1>
       <p> Choose your starting and ending destination </p>
       <p> Pick locations you want to visit along the way </p>
-      <p> We create a personalized best route for your travels </p>
+      <p> We create a best route for your travels </p>
+
     </div>
-  </div>
-
-
-
-
-
-
-
+    </div>
 
 
   <script>
