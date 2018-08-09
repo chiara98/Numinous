@@ -2,34 +2,48 @@
 form {
   margin-left: 500px;
   margin-top: -100px;
-}
-
-.background{
-
-  background-color: #455F91;
-
 
 }
+
+
 
 body {
 
   background-repeat: no-repeat;
   height: 100vh;
-  background: linear-gradient(to bottom, #116D89, #BFE3EE);
+  background-color: #FF9E38;
   overflow: hidden;
 
 }
 legend {
   padding-bottom: 50px;
-  font-family: 'Gentium Basic', serif;
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 3em;
+
+  color: white;
 
   font-weight: bold;
   font-size: 50px;
-  margin-left: 50px;
+  margin-left: 40px;
 
 
 
 
+}
+
+#user-username {
+  background: rgba(255,255,255,.1);
+  border: 1px solid white;
+  border-radius: 10px;
+  font-family: 'Itim', cursive;
+}
+
+#user-password {
+  background: rgba(255,255,255,.1);
+  border: 1px solid white;
+  border-radius: 10px;
+  font-family: 'Itim', cursive;
+  color: white;
 }
 .is-active {
   box-shadow: 0 20px 5px -10px rgba(#000, 0.4);
@@ -54,8 +68,15 @@ margin-right: 100px;
 input {
   height: 40px;
   width: 250px;
+  color: white;
+
+
+}
+
+#submit {
   background-color: white;
-  border-radius: 15px;
+  color: black;
+  font-family: 'Tenor Sans', sans-serif;
 
 }
 
@@ -67,12 +88,11 @@ button {
   height: 40px;
   width: 250px;
   border-radius: 10px;
-  background-color: #649FDB;
+  background-color: #EFB794;
+  color: white;
 
 }
-button:hover {
-  background-color: #CEDEEF
-}
+
 
 .container {
   display:flex;
@@ -85,6 +105,7 @@ button:hover {
  right: 0;
  width: 200px;
  height: 100vh;
+ margin-left: 100px;
 }
 
 #signup {
@@ -97,6 +118,16 @@ button:hover {
   height: 20px;
   width: 70px;
   margin-top: 30px;
+  background-color:  white;
+  color: black;
+  font-family: 'Tenor Sans', sans-serif;
+
+}
+
+input
+{
+
+
 }
 </style>
 <script>
@@ -124,7 +155,7 @@ $(".text").hover(function(){
 
   <div class="text-right">
 
-    <button type="submit">Login</button>
+    <button id="submit" type="submit">Login</button>
     <button id="mini-button"onclick="location.href='/users/new'" type="button">
      <small>Sign up</small></button>
   </div>
